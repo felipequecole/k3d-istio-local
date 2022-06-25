@@ -1,0 +1,28 @@
+apiVersion: k3d.io/v1alpha3
+kind: Simple
+name: mesh-local
+servers: 1
+agents: 2 
+kubeAPI: 
+  hostPort: "6443" 
+ports:
+  - port: 8080:80
+    nodeFilters:
+      - loadbalancer
+  - port: 8443:443
+    nodeFilters:
+      - loadbalancer
+registries: 
+  create: 
+    name: k3d-registry.localhost
+    host: "0.0.0.0"
+    hostPort: "5000"
+options:
+  k3s: 
+    extraArgs: 
+      - arg: --disable=traefik
+        nodeFilters:
+          - server:*
+  kubeconfig:
+    updateDefaultKubeconfig: true 
+    switchCurrentContext: true
