@@ -9,7 +9,7 @@
 
 ## How to install
 
-Run `sudo ./boot-mesh.sh`, that will create a k3d cluster with 2 nodes, install istio and setup a local gateway (mapping cluster port 80 to localhost 8080 and 443 to 8443)
+Run `sudo ./boot-mesh.sh`, that will create a k3d cluster with 2 nodes, install istio and setup a local gateway (mapping cluster port 80 to localhost 8080)
 It will also create a local registry, that you can use to push your images
 
 ```
